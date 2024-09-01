@@ -1,5 +1,8 @@
-import {app} from './app.js'
+import {app} from './src/app/app.js'
+import { mongoose } from './src/db/db.js'
+import dotenv from 'dotenv'
 
+dotenv.config();
 
 
 app.listen(3000,() => {
