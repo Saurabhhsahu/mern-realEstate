@@ -1,9 +1,8 @@
 import express from 'express'
+import { test } from '../controllers/userController.js';
 
 const userRouter = express.Router();
 
-userRouter.get('/',(req,res) => {
-    return res.send("get all the user data");
-})
+userRouter.get('/',test);
 
 export default userRouter;
