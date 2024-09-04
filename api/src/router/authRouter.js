@@ -1,9 +1,10 @@
 import express from "express"
-import {signup} from "../controllers/authController.js"
+import {signup,signin} from "../controllers/authController.js"
 
 const authRouter = express.Router();
 
 authRouter.post("/signup",signup);
+authRouter.post('/signin',signin);
 
 authRouter.use((err,req,res,next) => {
     const statusCode = err.statusCode || 500;
