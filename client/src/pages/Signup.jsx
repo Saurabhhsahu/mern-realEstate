@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
+import OAuth from '../components/OAuth';
 
 function Signout() {
   const [formData,setFormData] = useState({});
@@ -67,6 +68,7 @@ function Signout() {
         <button disabled={loading} className='bg-slate-700 text-white p-3 cursor-pointer rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>
           {loading ? 'loading...' : 'signup'}
         </button>
+        <OAuth/>
       </form>
 
       <div className='flex gap-4 my-4 justify-center'>
