@@ -33,6 +33,8 @@ export const signin = async (req,res,next) => {
             return next(errorHandler(404,"password is incorrect"));
 
         const token = jwt.sign({id:validUser._id},process.env.JWT_SECRET)
+
+        //dont send password to user so destructure it 
         const {password:pass,...rest} = validUser._doc;
         res
             .cookie('access_token',token, {httpOnly:true})
