@@ -1,8 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useRef } from 'react';
 
 function Profile() {
   const {currentUser} = useSelector(state => state.user);
+  const fileRef = useRef(null);
 
   return (
     <div className='max-w-lg p-3 mx-auto'>
@@ -11,7 +13,9 @@ function Profile() {
       </h1>
 
       <form className='flex flex-col'>
+        <input type="file" ref={fileRef} className='hidden'/>
         <img 
+          onClick={() => fileRef.current.click()}
           src={currentUser.avatar} 
           alt="profile" 
           className='rounded-full h-24 w-24 object-cover cursor-pointer self-center'
@@ -44,8 +48,8 @@ function Profile() {
       </form>
 
       <div className='flex justify-between mt-5'>
-        <span className='text-red-700 cursor-pointer '>delete account</span>
-        <span className='text-red-700 cursor-pointer '>Sign out</span>
+        <span className='cursor-pointer text-red-700 cursor-pointer '>delete account</span>
+        <span className='cursor-pointer text-red-700 cursor-pointer '>Sign out</span>
       </div>
     </div>
   )
